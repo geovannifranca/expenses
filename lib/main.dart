@@ -12,12 +12,15 @@ class ExpensesApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return  MaterialApp(
         debugShowCheckedModeBanner: false,
+        home: const MyHomePage(),
         theme: ThemeData(
-          primaryColor: Colors.cyan[800],
+          primaryColor: Colors.blueAccent,
+          accentColor: Color.amber,
         ),
-        home: const MyHomePage());
+        );
+        
   }
 }
 
@@ -96,11 +99,11 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Theme.of(context).primaryColor,
         onPressed: () => _openTransactionFormModal(context),
         shape: const CircleBorder(),
         child: const Icon(Icons.add),
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 }
