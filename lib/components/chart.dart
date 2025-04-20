@@ -14,18 +14,15 @@ class Chart extends StatelessWidget {
       );
 
       double totalSum = 0.0;
-      for(var i = 0; i < recentTransactions.length; i++){
-       bool sameDay = recentTransactions[i].date.day == weekDay.day;
-       bool sameMonth = recentTransactions[i].date.month == weekDay.month;
-       bool sameYear = recentTransactions[i].date.year == weekDay.year;
+      for (var i = 0; i < recentTransactions.length; i++) {
+        bool sameDay = recentTransactions[i].date.day == weekDay.day;
+        bool sameMonth = recentTransactions[i].date.month == weekDay.month;
+        bool sameYear = recentTransactions[i].date.year == weekDay.year;
 
-       if(sameDay && sameMonth && sameYear){
-        totalSum += recentTransactions[i].value;
-       }
+        if (sameDay && sameMonth && sameYear) {
+          totalSum += recentTransactions[i].value;
+        }
       }
-
-      print(DateFormat.E().format(weekDay)[0]);
-      print(totalSum);
 
       return {
         'day': DateFormat.E().format(weekDay)[0],
@@ -37,11 +34,13 @@ class Chart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     groupedTransactions;
-    return const Card(
+    return Card(
       elevation: 6,
-      margin: EdgeInsets.all(20),
+      margin: const EdgeInsets.all(20),
       child: Row(
-        children: <Widget>[],
+        children: groupedTransactions.map((tr) {
+          return Text('${tr['day']}: ${tr['value']}');
+        }).toList(),
       ),
     );
   }
