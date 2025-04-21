@@ -20,11 +20,12 @@ class ExpensesApp extends StatelessWidget {
           primaryColor: Colors.blueAccent,
           fontFamily: 'OpenSans',
           textTheme: const TextTheme(
-              titleMedium: TextStyle(
-            fontFamily: 'OpenSans',
-            fontWeight: FontWeight.bold,
-            fontSize: 18,
-          )),
+            titleMedium: TextStyle(
+              fontFamily: 'OpenSans',
+              fontWeight: FontWeight.bold,
+              fontSize: 18,
+            ),
+          ),
           appBarTheme: const AppBarTheme(
               titleTextStyle: TextStyle(
             fontFamily: 'OpenSans',
@@ -44,24 +45,24 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   final List<Transaction> _transactions = [
-    Transaction(
-      id: 't0',
-      title: 'Conta Antiga',
-      value: 400.00,
-      date: DateTime.now().subtract(const Duration(days: 33)),
-    ),
-    Transaction(
-      id: 't0',
-      title: 'Conta Antiga',
-      value: 310.76,
-      date: DateTime.now().subtract(const Duration(days: 3)),
-    ),
-    Transaction(
-      id: 't1',
-      title: 'Conta de Luz',
-      value: 211.30,
-      date: DateTime.now().subtract(const Duration(days: 4)),
-    ),
+    // Transaction(
+    //   id: 't0',
+    //   title: 'Conta Antiga',
+    //   value: 400.00,
+    //   date: DateTime.now().subtract(const Duration(days: 33)),
+    // ),
+    // Transaction(
+    //   id: 't0',
+    //   title: 'Conta Antiga',
+    //   value: 310.76,
+    //   date: DateTime.now().subtract(const Duration(days: 3)),
+    // ),
+    // Transaction(
+    //   id: 't1',
+    //   title: 'Conta de Luz',
+    //   value: 211.30,
+    //   date: DateTime.now().subtract(const Duration(days: 4)),
+    // ),
   ];
 
   List<Transaction> get _recentTransactions {
