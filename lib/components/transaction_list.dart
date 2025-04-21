@@ -4,14 +4,19 @@ import 'package:intl/intl.dart';
 
 class TransactionList extends StatelessWidget {
   final List<Transaction> transactions;
+  final void Function(String) onRemove;
 
-  const TransactionList({super.key, required this.transactions});
+  const TransactionList({
+    super.key,
+    required this.transactions,
+    required this.onRemove,
+  });
 
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      child: SizedBox(
-        height: 300,
+      child: Container(
+        height: 600,
         child: transactions.isEmpty
             ? Column(
                 children: [
@@ -56,6 +61,13 @@ class TransactionList extends StatelessWidget {
                       ),
                       subtitle: Text(
                         DateFormat('d MMM y').format(tr.date),
+                      ),
+                      trailing: IconButton(
+                        onPressed: () => onRemove(tr.id),
+                        icon: Icon(
+                          Icons.delete,
+                          color: Theme.of(context).colorScheme.error,
+                        ),
                       ),
                     ),
                   );

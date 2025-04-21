@@ -20,7 +20,7 @@ class _TransactionFormState extends State<TransactionForm> {
   _submitForm() {
     final title = _titleController.text;
     final value = double.tryParse(_valueController.text) ?? 0.0;
-    if (title.isEmpty || value <= 0 || _selectedDate == null) {
+    if (title.isEmpty || value <= 0) {
       return;
     }
     widget.onSubmit(title, value, _selectedDate);
@@ -72,9 +72,8 @@ class _TransactionFormState extends State<TransactionForm> {
               child: Row(
                 children: [
                   Expanded(
-                    child: Text(_selectedDate == null
-                        ? 'Nenhuma data selecionada.'
-                        : 'Data selecionada ${DateFormat('dd/Mm/y').format(_selectedDate)}'),
+                    child: Text(
+                        'Data selecionada ${DateFormat('dd/MM/y').format(_selectedDate)}'),
                   ),
                   TextButton(
                     onPressed: _showDatePicker,
